@@ -19,8 +19,6 @@ export const calculateLongStay = (start: Date, end: Date) => {
   const price = `£${cost.toFixed(2)}`;
 
   return price;
-
-  console.log(calculateLongStay(start, end));
 };
 
 /* Short Stay £1.10 per hour between 8am and 6pm on weekdays (max 10hrs/day), 

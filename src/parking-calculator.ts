@@ -9,11 +9,12 @@ export const calculateLongStay = (start: Date, end: Date) => {
 
   // Calculating the time difference between two dates
   const diffInTime = date2.getTime() - date1.getTime();
+  console.log(diffInTime);
 
   // Calculating the no. of days between two dates
   const diffInDays = Math.round(diffInTime / oneDay);
 
-  const cost = diffInDays * 7.5;
+  const cost = diffInDays * 7.5 + 7.5;
 
   const price = `£${cost.toFixed(2)}`;
 
@@ -29,6 +30,7 @@ export const calculateShortStay = (start: Date, end: Date) => {
   const endDate: Date = new Date(end);
   // Calculating the time difference between two dates
   const diffInTime = startDate.getTime() - endDate.getTime();
+  console.log(diffInTime);
   const shortHrsInSpace = end;
   return 0;
 };

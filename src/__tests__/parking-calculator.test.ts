@@ -96,72 +96,72 @@ describe("Long Stay", () => {
   test("Multi day long stay calculated correctly", () => {
     const start = new Date("Sep 07 2017 07:50:00");
     const end = new Date("Sep 09 2017 05:20:00");
-    expect(calculateLongStay(start, end)).toEqual(2250);
+    expect(calculateLongStay(start, end)).toEqual("£22.50");
   });
 
   test("Another multi day long stay calculated correctly", () => {
     const start = new Date("January 20 2017 07:50:00");
     const end = new Date("January 25 2017 05:20:00");
-    expect(calculateLongStay(start, end)).toEqual(4500);
+    expect(calculateLongStay(start, end)).toEqual("£45.00");
   });
 
   test("Multi month long stay calculated correctly", () => {
     const start = new Date("January 30 2017 07:50:00");
     const end = new Date("February 02 2017 05:20:00");
-    expect(calculateLongStay(start, end)).toEqual(3000);
+    expect(calculateLongStay(start, end)).toEqual("£30.00");
   });
 
   test("Another multi month long stay calculated correctly", () => {
     const start = new Date("January 30 2017 07:50:00");
     const end = new Date("August 15 2017 12:20:00");
-    expect(calculateLongStay(start, end)).toEqual(148500);
+    expect(calculateLongStay(start, end)).toEqual("£1485.00");
   });
 
   test("Leap year calculated correctly", () => {
     const start = new Date("February 27 2020 07:50:00");
     const end = new Date("March 02 2020 12:20:00");
-    expect(calculateLongStay(start, end)).toEqual(3750);
+    expect(calculateLongStay(start, end)).toEqual("£37.50");
   });
 
   test("Non Leap year calculated correctly", () => {
     const start = new Date("February 27 2021 07:50:00");
     const end = new Date("March 02 2021 12:20:00");
-    expect(calculateLongStay(start, end)).toEqual(3000);
+    expect(calculateLongStay(start, end)).toEqual("£30.00");
   });
 
   test("Two Leap years calculated correctly", () => {
     const start = new Date("February 27 2016 07:50:00");
     const end = new Date("March 02 2020 12:20:00");
-    expect(calculateLongStay(start, end)).toEqual(1099500);
+    expect(calculateLongStay(start, end)).toEqual("£10995.00");
   });
 
   test("1 year long long stay calculated correctly", () => {
     const start = new Date("January 30 2017 07:50:00");
     const end = new Date("January 29 2018 07:20:00");
-    expect(calculateLongStay(start, end)).toEqual(273750);
+    expect(calculateLongStay(start, end)).toEqual("£2737.50");
   });
 
   test("Stay on epoch only calculated correctly", () => {
     let start = new Date(0);
     let end = new Date("January 01 1970 12:00:00");
-    expect(calculateLongStay(start, end)).toEqual(750);
+    expect(calculateLongStay(start, end)).toEqual("7.50");
   });
 
   test("Stay from epoch to second day after epoch calculated correctly", () => {
     let start = new Date(0);
     let end = new Date("January 02 1970 12:00:00");
-    expect(calculateLongStay(start, end)).toEqual(1500);
+    expect(calculateLongStay(start, end)).toEqual("£15.00");
   });
 
   test("Stay from epoch to last date in millenium calculated correctly", () => {
     const start = new Date("January 01 1970 00:00:00");
     const end = new Date("December 31 1999 12:00:00");
-    expect(calculateLongStay(start, end)).toEqual(8217750);
+    expect(calculateLongStay(start, end)).toEqual("£82177.50");
   });
 
   test("Stay from last date in previous millenium to first date in current calculated correctly", () => {
     const start = new Date("December 31 1999 00:00:00");
     const end = new Date("January 01 2000 12:00:00");
-    expect(calculateLongStay(start, end)).toEqual(1500);
+    expect(calculateLongStay(start, end)).toEqual("£15.00");
   });
 });

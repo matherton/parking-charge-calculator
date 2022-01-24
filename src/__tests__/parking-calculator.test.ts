@@ -90,7 +90,7 @@ describe("Long Stay", () => {
   test("One day long stay calculated correctly", () => {
     const start = new Date("Sep 07 2017 07:50:00");
     const end = new Date("Sep 07 2017 18:20:00");
-    expect(calculateLongStay(start, end)).toEqual(750);
+    expect(calculateLongStay(start, end)).toEqual("£7.50");
   });
 
   test("Multi day long stay calculated correctly", () => {

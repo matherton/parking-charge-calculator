@@ -18,7 +18,9 @@ export const calculateLongStay = (start: Date, end: Date) => {
 
     const cost = diffInDays * 7.5;
 
-    return cost.toFixed(2);
+    const price = `£${cost.toFixed(2)}`;
+
+    return price;
   }
 
   console.log(getNumberOfDays(startDate, endDate));

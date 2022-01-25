@@ -9,7 +9,6 @@ export const calculateLongStay = (start: Date, end: Date) => {
 
   // Calculating the time difference between two dates
   const diffInTime = date2.getTime() - date1.getTime();
-  console.log(diffInTime);
 
   // Calculating the no. of days between two dates
   const diffInDays = Math.round(diffInTime / oneDay);

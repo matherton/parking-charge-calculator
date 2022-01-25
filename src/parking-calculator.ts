@@ -26,9 +26,21 @@ free outside of these times. Visits need not be whole hours and can last more th
 export const calculateShortStay = (start: Date, end: Date) => {
   const startDate: Date = new Date(start);
   const endDate: Date = new Date(end);
-  // Calculating the time difference between two dates
-  const diffInTime = startDate.getTime() - endDate.getTime();
-  console.log(diffInTime);
-  const shortHrsInSpace = end;
-  return 0;
+  // Calculating the time difference between two dates in hours
+  const shortHrsInSpace = endDate.getHours() - startDate.getHours();
+
+  if (shortHrsInSpace >= 10) {
+    console.log(shortHrsInSpace, " Greater than 1day");
+    const shortStayCost = shortHrsInSpace * 1.1;
+    //TODO return only week days if incoming dates are over a weekend and only charge max of 10hrs per day by fixing multi day failing tests
+    console.log("cost: £", shortStayCost.toFixed(2));
+  } else {
+    const shortStayCost = shortHrsInSpace * 1.1;
+    console.log(
+      "Time in hours short stay under 1 day:",
+      `${shortHrsInSpace}hrs`
+    );
+    console.log("cost: £", shortStayCost.toFixed(2));
+  }
+  return shortHrsInSpace;
 };
